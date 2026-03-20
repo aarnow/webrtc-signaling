@@ -52,7 +52,8 @@ wss.on('connection', ws => {
             // ── 2. Relayer offer / answer / candidate à l'autre pair ─────────
             case 'offer':
             case 'answer':
-            case 'candidate': {
+            case 'candidate':
+            case 'ready': {
                 const room = rooms[ws.roomCode] || [];
                 const other = room.find(c => c !== ws);
                 if (other && other.readyState === 1) {
